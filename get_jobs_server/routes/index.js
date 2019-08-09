@@ -58,7 +58,7 @@ router.post('/register',(req,res)=>{
       }else{
         new UserModel({username,type,password:md5(password)}).save((err,user)=>{
             res.cookie('userId',user._id,{maxAge:1000*60*60*24*7});
-            console.log('save()',user,err);
+            // console.log('save()',user,err);
             const data = {username,type,userId:user._id}
             res.send({code:0,data});
         });
