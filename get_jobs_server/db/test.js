@@ -4,7 +4,7 @@
 //引入md5对密码进行加密
 const md5 = require('blueimp-md5');
 //1.引入mongoose
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
 //2.连接指定数据库
 mongoose.connect('mongodb://localhost:27017/reactTest',{ useNewUrlParser: true });
 //3.获取连接对象

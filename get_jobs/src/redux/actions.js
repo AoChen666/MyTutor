@@ -2,11 +2,15 @@
  * 产生多个action的工厂函数
  */
 import {reqRegister,reqLogin,upData} from '../api/index';
-import {AUTH_SUCCESS,ERROR_MSG} from './action-types';
+import {AUTH_SUCCESS,ERROR_MSG,UPDATA_MSG,UPDATA_FAIL} from './action-types';
 //成功时对应的action
 export const authSuccess = (user) => ({type:AUTH_SUCCESS,data:user})
 //发生错误时对应的action
 export const errorMsg = (msg) => ({type:ERROR_MSG,data:msg});
+//更新信息成功对应的action
+export const upDataUserMsg = (msg) => ({type:UPDATA_MSG,data:msg});
+//更新信息失败对应的action
+export const upDataFail = (msg) => ({type:UPDATA_FAIL,data:msg});
 
 //异步action
 //register注册接口异步action
@@ -47,16 +51,16 @@ export function asyncLogin (user) {
             dispatch(errorMsg(result.data.msg));
         }
     }
-}
+} 
 
 //用户完善信息对应的action
 export function upDataUserInfo(upDataMsg){
     return async dispatch=>{
         const result = await upData(upDataMsg);
         if(+result.data.code===1){
-            dispatch(errorMsg(result.data.msg));
+            dispatch(upDataFail(result.data.msg));
         }else if(+result.data.code===0){
-            dispatch(authSuccess(result.data.data));
+            dispatch(upDataUserMsg(result.data.data));
         }
     }
 }

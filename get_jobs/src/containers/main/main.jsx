@@ -11,7 +11,7 @@ class Main extends Component{
     render(){
         if(document.cookie.indexOf('userId')!==-1){
             return (
-
+                
                 <div>
                     <Switch>
                         <Route path="/main/teacherInfo" component={Teacher} />
