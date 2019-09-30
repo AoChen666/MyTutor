@@ -1,0 +1,38 @@
+p,div{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: relative;
+    width:200px;
+    height:300px;
+    border: 1px solid red;
+    margin: 100px auto;
+    overflow: auto;
+}
+.container .topTips{
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    border: 1px solid green; 
+    text-align: center;
+    line-height: 50px;
+    z-index: 3;
+}
+.container .content{
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    /* overflow-y: auto; */
+    /* -webkit-overflow-scrolling: touch; */
+    transition: transform .5s ease;
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: yellow; */
+}
+.list{
+    width: 100%;
+    height: 20px;
+    background-color: pink;
+}
